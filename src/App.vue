@@ -1,85 +1,68 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <div id="app" class="container py-4">
+    <div class="row">
+      <!-- 商品列表區 -->
+      <div class="col-md-8">
+        <h2 class="mb-3">商品列表</h2>
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img
+                src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?q=80&amp;w=2065&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                class="card-img-top"
+              />
+              <div class="card-body">
+                <h5 class="card-title">耳罩式藍牙耳機</h5>
+                <p class="card-text">舒適配戴，支援降噪技術</p>
+                <p class="fw-bold text-primary">$ 2490</p>
+                <button class="btn btn-success w-100">加入購物車</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+      <!-- 購物車區 -->
+      <div class="col-md-4">
+        <h2 class="mb-3">購物車</h2>
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+              <h6 class="my-0">時尚藍牙耳機</h6>
+              <small class="text-muted">數量：1</small>
+            </div>
+            <div>
+              <span class="text-muted">$7990</span>
+              <button class="btn btn-sm btn-outline-danger ms-2">移除</button>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
-  </header>
 
-  <RouterView />
+    <!-- 通知元件 -->
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 1050">
+      <div class="toast show align-items-center text-white bg-success border-0">
+        <div class="d-flex">
+          <div class="toast-body">這是通知訊息</div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto"></button>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+body {
+  background: #f2f2f2f2;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+.card-img-top {
+  height: 150px;
+  object-fit: cover;
 }
 </style>

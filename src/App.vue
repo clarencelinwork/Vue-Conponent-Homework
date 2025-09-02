@@ -1,7 +1,7 @@
 <script setup>
-import ItemListView from '@/views/ItemList.vue'
-import CartListView from '@/views/CartList.vue'
-import NotifyToastView from '@/views/NotifyToast.vue'
+import ItemListView from '@/components/ItemList.vue'
+import CartListView from '@/components/CartList.vue'
+import NotifyToastView from '@/components/NotifyToast.vue'
 
 import { provide, ref } from 'vue'
 const itemList = ref([

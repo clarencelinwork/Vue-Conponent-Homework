@@ -6,12 +6,12 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/Vue-Conponent-Homework/',
   plugins: [
     vue(),
     vueDevTools(),
   ],
   resolve: {
-    base: '/Vue-Conponent-Homework/',
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },

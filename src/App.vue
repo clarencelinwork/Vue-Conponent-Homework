@@ -60,6 +60,10 @@ const addToCart = (item) => {
     nowCartItem.count += 1
   }
 }
+
+const removeFromCart = (cartItem) => {
+  cartItems.value = cartItems.value.filter((item) => item.id !== cartItem.id)
+}
 </script>
 
 <template>
@@ -72,7 +76,7 @@ const addToCart = (item) => {
 
       <!-- 購物車區 -->
       <div class="col-md-4">
-        <CartView :cartItems="cartItems"/>
+        <CartView :cartItems="cartItems" @emit-cart-item="removeFromCart" />
       </div>
     </div>
 

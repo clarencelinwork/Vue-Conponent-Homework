@@ -2,6 +2,11 @@
 const props = defineProps({
   cartItems: { type: Array, required: true },
 })
+
+const emit = defineEmits(['emit-cart-item'])
+const passRemove = (cartItem) => {
+  emit('emit-cart-item', cartItem)
+}
 </script>
 
 <template>
@@ -14,7 +19,7 @@ const props = defineProps({
       </div>
       <div>
         <span class="text-muted">${{ cartItem.price }}</span>
-        <button class="btn btn-sm btn-outline-danger ms-2">移除</button>
+        <button class="btn btn-sm btn-outline-danger ms-2" @click="passRemove(cartItem)">移除</button>
       </div>
     </li>
   </ul>

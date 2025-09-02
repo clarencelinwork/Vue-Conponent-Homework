@@ -1,6 +1,6 @@
 <script setup>
 import ItemListView from '@/views/ItemList.vue'
-import CartView from '@/views/Cart.vue'
+import CartListView from '@/views/CartList.vue'
 import NotifyToastView from '@/views/NotifyToast.vue'
 
 import { provide, ref } from 'vue'
@@ -87,7 +87,7 @@ provide('notify', (message) => {
 
       <!-- 購物車區 -->
       <div class="col-md-4">
-        <CartView :cartItems="cartItems" @emit-cart-item="removeFromCart" />
+        <CartListView :cartItems="cartItems" @emit-cart-item="removeFromCart" />
       </div>
     </div>
 

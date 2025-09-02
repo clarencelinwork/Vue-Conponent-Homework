@@ -11,6 +11,7 @@ export default defineConfig({
     vueDevTools(),
   ],
   resolve: {
+    base: '/Vue-Conponent-Homework/',
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },

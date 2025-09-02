@@ -47,6 +47,19 @@ const itemList = ref([
   },
 ])
 
+const cartItems = ref([])
+
+const addToCart = (item) => {
+  let nowCartItem = cartItems.value.find((cartItem) => cartItem.id === item.id)
+
+  if (!nowCartItem) {
+    // 創建新的購物車項目，包含數量
+    const newCartItem = { ...item, count: 1 }
+    cartItems.value.push(newCartItem)
+  } else {
+    nowCartItem.count += 1
+  }
+}
 </script>
 
 <template>
@@ -54,12 +67,12 @@ const itemList = ref([
     <div class="row">
       <!-- 商品列表區 -->
       <div class="col-md-8">
-        <ItemListView :itemList="itemList"/>
+        <ItemListView :itemList="itemList" @emit-item="addToCart" />
       </div>
 
       <!-- 購物車區 -->
       <div class="col-md-4">
-        <CartView />
+        <CartView :cartItems="cartItems"/>
       </div>
     </div>
 

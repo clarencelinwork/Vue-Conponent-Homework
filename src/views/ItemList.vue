@@ -2,6 +2,11 @@
 const props = defineProps({
   itemList: { type: Array, required: true },
 })
+
+const emit = defineEmits(['emit-item'])
+const pass = (item) => {
+  emit('emit-item', item)
+}
 </script>
 
 <template>
@@ -14,7 +19,7 @@ const props = defineProps({
           <h5 class="card-title">{{ item.name }}</h5>
           <p class="card-text">{{ item.description }}</p>
           <p class="fw-bold text-primary">$ {{ item.price }}</p>
-          <button class="btn btn-success w-100">加入購物車</button>
+          <button class="btn btn-success w-100" @click="pass(item)">加入購物車</button>
         </div>
       </div>
     </div>

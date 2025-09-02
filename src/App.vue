@@ -3,7 +3,7 @@ import ItemListView from '@/views/ItemList.vue'
 import CartView from '@/views/Cart.vue'
 import NotifyToastView from '@/views/NotifyToast.vue'
 
-import { ref } from 'vue'
+import { provide, ref } from 'vue'
 const itemList = ref([
   {
     id: 1,
@@ -64,6 +64,17 @@ const addToCart = (item) => {
 const removeFromCart = (cartItem) => {
   cartItems.value = cartItems.value.filter((item) => item.id !== cartItem.id)
 }
+
+const isShowToast = ref(false)
+const showToastMessage = ref('')
+
+provide('notify', (message) => {
+  isShowToast.value = true
+  showToastMessage.value = message
+  setTimeout(() => {
+    isShowToast.value = false
+  }, 2000)
+})
 </script>
 
 <template>
@@ -80,7 +91,7 @@ const removeFromCart = (cartItem) => {
       </div>
     </div>
 
-    <NotifyToastView />
+    <NotifyToastView :isShowToast="isShowToast" :showToastMessage="showToastMessage" />
   </div>
 </template>
 

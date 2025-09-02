@@ -1,11 +1,15 @@
 <script setup>
+import { inject } from 'vue'
+
 const props = defineProps({
   itemList: { type: Array, required: true },
 })
+const notify = inject('notify');
 
 const emit = defineEmits(['emit-item'])
 const pass = (item) => {
   emit('emit-item', item)
+  notify(`${item.name} 已加入購物車`)
 }
 </script>
 
